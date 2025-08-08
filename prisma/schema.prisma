@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  supabaseId String?  @unique
+  email      String   @unique
+  name       String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime? @updatedAt
+  posts      Post[]  
+  memos      Memo[] 
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+  userId    Int  // 外部キー
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Memo {
+  id          Int   @id @default(autoincrement())
+  title       String
+  items       String?
+  textContent String?
+  images      String?  // この行を追加
+  urls        String?  // この行を追加
+  type        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId    Int  // 外部キー
+  user      User     @relation(fields: [userId], references: [id])
+}

@@ -1,0 +1,106 @@
+/* app/components/MemoList.css */
+
+.memo-list-container {
+  padding: 20px;
+  background-color: #e0f2f7; /* 背景の薄い水色 */
+  min-height: 100vh; /* 画面いっぱいに広げる */
+  box-sizing: border-box; /* paddingをboxのサイズに含める */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* 新規作成ボタンのスタイル */
+.create-new-button {
+  display: block; /* 中央寄せのためにブロック要素にする */
+  margin: 0 auto 40px auto; /* 上下中央、左右自動で中央寄せ、下余白 */
+  padding: 10px 20px;
+  background-color: #3498db; /* 青色に変更 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 少し影をつける */
+  transition: background-color 0.3s ease;
+  font-weight: bold; /* 太字に */
+}
+
+.create-new-button:hover {
+  background-color: #2980b9; /* ホバーで少し暗く */
+}
+
+.memo-items-wrapper {
+  display: flex;
+  flex-direction: column; /* 縦に並べる */
+  gap: 20px; /* アイテム間の余白 */
+}
+
+/* 各メモアイテムのスタイルとレイアウト調整 */
+.memo-item {
+  background-color: #b3e0f2; /* 各メモの薄い水色 */
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* 影 */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* ホバー時のアニメーション */
+
+  /* Flexboxを使って中身を横並びにする */
+  display: flex;
+  justify-content: space-between; /* メモ内容とボタンを両端に配置 */
+  align-items: center; /* 垂直方向の中央揃え */
+}
+
+.memo-item:hover {
+  transform: translateY(-3px); /* 少し上に浮き上がる */
+}
+
+/* メモのタイトルと日付をまとめるコンテナ */
+.memo-content {
+  flex-grow: 1; /* 残りのスペースを占めるようにする */
+}
+
+.memo-item h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.memo-date {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* 削除ボタンのスタイル */
+.delete-button {
+  background-color: #e74c3c; /* 赤色 */
+  color: white;
+  border: none;
+  border-radius: 5px; /* 角丸 */
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9em; /* 少し小さめ */
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  margin-left: 15px; /* メモ内容との間にスペース */
+  flex-shrink: 0; /* 縮小しないようにする */
+}
+
+.delete-button:hover {
+  background-color: #c0392b; /* ホバーで少し濃い赤 */
+  transform: translateY(-1px); /* 少し浮き上がる */
+}
+
+.delete-button:active {
+  transform: translateY(0); /* クリックで元に戻る */
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}

@@ -1,0 +1,95 @@
+.container {
+  padding: 20px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.createButton {
+  display: inline-block;
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.createButton:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.userTable thead {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+}
+
+.userTable th,
+.userTable td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.userTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.userTable tbody tr:hover {
+  background-color: #e9e9e9;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.userId {
+  width: 15%;
+  text-align: center;
+}
+.userName {
+  width: 35%;
+}
+.userEmail {
+  width: 45%;
+}
+.userAction {
+  width: 15%;
+}
+
+/* モバイル対応 */
+@media (max-width: 640px) {
+  .headerRow {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .createButton {
+    margin-top: 0.5rem;
+  }
+
+  .userEmail {
+    display: none;
+  }
+}

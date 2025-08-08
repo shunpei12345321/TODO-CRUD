@@ -1,0 +1,466 @@
+/* components/MemoDetail.css */
+
+.memo-detail-container {
+  padding: 20px;
+  background-color: #e0f2f7; /* 背景の薄い水色 */
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-width: 800px; /* 最大幅を設定して中央に寄せる */
+  margin: 20px auto; /* 上下左右中央寄せ */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.memo-title-input {
+  width: calc(100% - 40px); /* padding分を考慮 */
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #ddd; /* 枠線を少し薄く */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* paddingをwidthに含める */
+}
+
+/* メモの種類選択のスタイル */
+.memo-type-selection {
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f8ff; /* 薄い青 */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.memo-type-selection label {
+  margin: 0 15px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  display: inline-flex; /* ラジオボタンとテキストを横並びにする */
+  align-items: center; /* 垂直方向の中央揃え */
+}
+
+.memo-type-selection input[type="radio"] {
+  margin-right: 8px; /* ラベルとの間隔 */
+  width: 18px; /* ラジオボタンのサイズ調整 */
+  height: 18px;
+  cursor: pointer;
+  vertical-align: middle; /* テキストと垂直方向を合わせる */
+}
+
+.memo-content-box {
+  background-color: #b3e0f2; /* メモ内容の薄い水色 */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+/* チェックリスト関連 */
+.checklist-content {
+  margin-bottom: 20px;
+}
+
+.memo-item-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.memo-item-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.memo-item-checkbox label {
+  cursor: pointer;
+  flex: 1;
+}
+
+.memo-item-checkbox input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+.remove-item-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  transition: background-color 0.2s;
+}
+
+.remove-item-button:hover {
+  background: #dc2626;
+}
+
+.add-item-input {
+  width: calc(100% - 20px); /* padding分を考慮 */
+  padding: 8px 10px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; /* paddingをwidthに含める */
+}
+
+.add-item-input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* テキストメモ入力フォームのスタイル */
+.text-memo-input {
+  width: 100%;
+  min-height: 200px; /* ある程度の高さを確保 */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  line-height: 1.5;
+  box-sizing: border-box; /* paddingをwidthに含める */
+  resize: vertical; /* 垂直方向のみリサイズ可能に */
+  font-family: 'Inter', sans-serif; /* フォントを合わせる */
+}
+
+.text-memo-input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* 画像セクション */
+.images-section {
+  margin: 20px 0;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+.images-section h4 {
+  margin: 0 0 16px 0;
+  color: #374151;
+  font-size: 16px;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.image-item {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.memo-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.image-caption-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.image-caption-input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.remove-image-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.remove-image-button:hover {
+  background: #dc2626;
+}
+
+/* URL セクション */
+.urls-section {
+  margin: 20px 0;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+.urls-section h4 {
+  margin: 0 0 16px 0;
+  color: #374151;
+  font-size: 16px;
+}
+
+.urls-list {
+  margin-bottom: 16px;
+}
+
+.url-item {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.url-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.url-link:hover {
+  text-decoration: underline;
+}
+
+.url-description {
+  color: #64748b;
+  font-size: 12px;
+  margin: 0;
+}
+
+.remove-url-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  align-self: flex-start;
+  transition: background-color 0.2s;
+}
+
+.remove-url-button:hover {
+  background: #dc2626;
+}
+
+.url-input-form {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.url-input,
+.url-title-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.url-input:focus,
+.url-title-input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.url-description-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  min-height: 60px;
+  resize: vertical;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.url-description-input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.url-input-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.add-url-confirm-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.add-url-confirm-button:hover {
+  background: #059669;
+}
+
+.add-url-cancel-button {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.add-url-cancel-button:hover {
+  background: #4b5563;
+}
+
+/* ボタンエリア */
+.attachment-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+.image-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745; /* 緑色に変更 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.image-button:hover {
+  background-color: #218838;
+}
+
+.memo-actions {
+  display: flex;
+  justify-content: flex-end; /* 右寄せ */
+  gap: 15px;
+}
+
+.save-button, .attach-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* 青色の保存ボタンに変更 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  font-weight: bold; /* 太字に */
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.attach-button {
+  background-color: #6c757d; /* グレーの添付ボタンに変更 */
+  font-weight: bold; /* 太字に */
+}
+
+.attach-button:hover {
+  background-color: #5a6268;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  background: #fef2f2;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #fecaca;
+  margin-bottom: 16px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .memo-detail-container {
+    margin: 10px;
+    padding: 16px;
+  }
+  
+  .images-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .memo-type-selection {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .memo-type-selection label {
+    margin: 8px 0;
+  }
+  
+  .url-input-actions {
+    flex-direction: column;
+  }
+  
+  .attachment-buttons {
+    flex-direction: column;
+  }
+  
+  .memo-actions {
+    flex-direction: column;
+  }
+}
